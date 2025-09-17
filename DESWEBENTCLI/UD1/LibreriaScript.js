@@ -29,7 +29,7 @@ function saludar(){
     }
 
     // Ejercicio 5
-    function muestra_n_distintas_bases(num){
+    function distintas_bases(num){
         // Transforma numero a binario
         var numDecimal = num.toString(2);
         console.log("El numero en binario es: " + numDecimal);
