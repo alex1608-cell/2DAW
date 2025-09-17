@@ -27,3 +27,10 @@ function saludar(){
         var num = 2* Math.pow(10,-9);
         console.log("El valor de la cuenta es: " + num);
     }
+
+    // Ejercicio 5
+    function muestra_n_distintas_bases(num){
+        // Transforma numero a binario
+        var numDecimal = num.toString(2);
+        console.log("El numero en binario es: " + numDecimal);
+    }
