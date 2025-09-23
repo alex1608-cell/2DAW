@@ -74,16 +74,111 @@ function definir_y_mostrar_array() {
     console.table(array);
 }
 
-function contar_y_temporizador(){
+// Ejercicio 12
+function contar_y_temporizador() {
     let valor = 0;
     let timeInt = new Date();
 
-    for(let i = 0; i < 1000; i++){
-        valor+= 10;
+    for (let i = 0; i < 1000; i++) {
+        valor += 10;
     }
 
     let endTime = new Date();
 
     console.log("Valor: " + valor);
-    console.log("El algoritmo ha tardado: " + ((endTime - timeInt)/2000) + " segundos");
+    console.log("El algoritmo ha tardado: " + ((endTime - timeInt) / 2000) + " segundos");
 }
+
+// Ejercicio 13
+function mostrarError() {
+    console.error("Error!: No se ha encontrado ningun valor");
+}
+
+// Ejercicio 14
+function confirmar() { }
+
+// Ejercicio 15
+function ejercicio15() {
+    let nombre = window.prompt("Introduce tu nombre");
+    window.confirm(nombre + " , deseas aceptar o rechazar?");
+    if (window.confirm == true) {
+        window.alert("Has aceptado");
+    } else {
+        window.alert("Has rechazado");
+    }
+    console.log("FIN DEL PROGRAMA");
+}
+
+// Ejercicio 15 como lo ha entendido octavio
+
+function pedir_datos() {
+
+    let seguir = true;
+
+    while (seguir) {
+
+        let nombre = prompt("Introduzca tu nombre: ");
+
+        console.log("Hola " + nombre);
+
+        seguir = confirm("Desea continuar en el programa?"); // confirm devuelve el boolean ( true o false)
+
+        console.log("Has decidido continuar");
+    }
+    console.log("Has finalizado el programa");
+}
+
+// Ejercicio 16
+
+function ejercicio16() {
+
+
+    let nombre = window.prompt("Dime tu nombre");
+    let edad = window.prompt("Dime tu edad");
+    let ciudad = window.prompt("Dime tu ciudad");
+    let direccion = window.prompt("Dime tu direccion");
+    let telefono = window.prompt("Dime tu telefono");
+
+
+    if ((edad ** 5) == telefono || ciudad.toUpperCase === "Mairena del Alcor".toUpperCase) {
+        window.alert("ENHORABUENA");
+    } else {
+        window.alert("FINALIZADO");
+    }
+
+}
+
+// Ejercicio 16 otra forma
+function datos_personales(){
+
+    let edad = document.getElementById("edad").value;
+    let nombre = document.getElementById("nombre").value;
+    let ciudad = document.getElementById("ciudad").value;
+    let doreccion = document.getElementById("direccion").value;
+    let telefono = document.getElementById("telefono").value;
+
+    console.log("La informacion recogida es: " + edad + nombre + ciudad + direccion + telefono);
+
+        if ((edad ** 5) == telefono || ciudad.toUpperCase === "Mairena del Alcor".toUpperCase) {
+        window.alert("ENHORABUENA");
+    } else {
+        window.alert("FINALIZADO");
+    }
+
+}
+
+// Ejercicio 17
+
+function ejercicio17(){
+    
+    let numero = Math.abs(prompt("Introduce un numero: "));
+    let cifras = 0;
+    while(numero >= 1){
+        cifras++;
+        numero = Math.floor(numero / 10);
+    }
+    console.log("El numero tiene " + cifras + "cifras");
+
+}
+
+
