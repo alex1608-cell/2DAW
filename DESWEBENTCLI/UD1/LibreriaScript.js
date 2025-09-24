@@ -265,7 +265,7 @@ function multiplos(){
     let n = Number(prompt("Introduce un numero: "));
     let multiplos = 0;
     const max = 100;
-    for( i = n; i < max; i++ ){
+    for( i = n + 1; i < max; i++ ){
         if(i % n == 0){
             multiplos ++;
             console.log("Multiplo encontrado " + i);
