@@ -182,3 +182,94 @@ function ejercicio17(){
 }
 
 
+// Ejercicio 18
+
+function edad(){
+    let edad = Number(prompt("Introduce tu edad: "));
+    switch(true){
+
+        case edad >= 0 && edad <= 16:
+            console.log("Eres un niño");
+            break;
+        case edad > 16 && edad <= 25:
+            console.log("Eres un joven");
+            break;
+       case edad > 25 && edad <= 60:
+            console.log("Eres un adulto");
+            break;
+        case edad > 60:
+            console.log("Eres senior");
+            break;
+        default:
+            console.error("Edad no valida");
+    }
+}
+
+// Ejercicio 18 de otra forma
+
+function edadDiferente(){
+    let edad = document.getElementById("edad").value;
+
+    switch(true){
+
+        case edad >= 0 && edad <= 16:
+            pintar_mensaje("Eres un niño", true);
+            break;
+        case edad > 16 && edad <= 25:
+            pintar_mensaje("Eres un joven", true);
+            break;
+       case edad > 25 && edad <= 60:
+            pintar_mensaje("Eres un adulto", true);
+            break;
+        case edad > 60:
+            pintar_mensaje("Eres senior", true);
+            break;
+        default:
+            pintar_mensaje("Edad no valida", false);
+    }
+}
+
+function pintar_mensaje(mensaje, isOk){
+    let aviso = document.getElementById("aviso");
+    aviso.textContent = mensaje;
+
+    if(isOk){
+        aviso.style.color = "green";
+    }else{
+        aviso.style.color = "red";
+    }
+}
+
+// Ejercicio 19
+
+function acierta_aleatorio(){
+   
+    const aleat = Math.floor((Math.random() * 10) + 1);
+    let intento = 0;
+
+     alert("Se a calculado un numero aleatorio. ¿Eres capaz de acertarlo?.")
+
+    do{
+        intento ++;
+       var valor_intento =  Number(prompt("Intento " + intento));
+
+    }while(valor_intento != aleat);
+
+    console.log("Enhorabuena! has acertado. El numero secreto era el " +  aleat)
+    console.log("Has necesitafo " + intento + " intentos")
+}
+
+// Ejercicio 20
+
+function multiplos(){
+    let n = Number(prompt("Introduce un numero: "));
+    let multiplos = 0;
+    const max = 100;
+    for( i = n; i < max; i++ ){
+        if(i % n == 0){
+            multiplos ++;
+            console.log("Multiplo encontrado " + i);
+        }
+    }
+    console.log("El numero " + " tiene " + multiplos + " multiplos");
+}
