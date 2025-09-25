@@ -1,12 +1,5 @@
 
-// Ejercicio inventado por octavio. 
-
-// Calcula la secuencia de fibonachi atendiendo a la formula
-
-function fibonachi() {
-
-}
-
+// Intento fallido
 function colores() {
     let colores = [
         "#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", "#E3BAFF", "#FFB3E6", "#FFD6E0", "#D6FFD6", "#FFF5BA",
@@ -18,10 +11,52 @@ function colores() {
 
     let ejercicios = document.getElementsByClassName("ejercicio");
 
-    window.onload = function() {
-        for(let i = 0; i < ejercicios.length; i++){
+    window.onload = function () {
+        for (let i = 0; i < ejercicios.length; i++) {
             let colorAleatorio = Math.random() * colores.length;
             ejercicios[i].style.backgroundColor = colores[Math.floor(colorAleatorio)];
         }
     }
 };
+
+// Ejercicio inventado por octavio. 
+
+// Calcula la secuencia de fibonachi atendiendo a la formula
+
+function calcular_fibonachi() {
+
+    let num = Number(prompt("Introduce un numero: "));
+    let resultado = fibonachi(num);
+
+    console.log("El valor fib(" + num + ") es " + fibonachi(num));
+}
+
+function fibonachi(num){
+    let result;
+    // Comprobamos casos base
+    if(num === 0){
+        result = 0;
+    }else if(num === 1){
+        result =  1;
+    }else{
+        // Aqui esta la llamada recursiva
+        result = fibonachi(num -1) + fibonachi(num - 2);
+    }
+}
+
+function calcular_factorial(){
+    let num = Number(prompt("Introduce un numero: "));
+    let result = factorial(num);
+
+    console.log("el valor factorial(" + num + ") es " + factorial(num));
+
+}
+
+function factorial(num){
+    if(num === 1){
+        return  1;
+    }else{
+        return num * factorial(num - 1);
+    }
+
+}
