@@ -1,6 +1,5 @@
 
-// Intento fallido
-function colores() {
+// Intento colores por ejercicio
     let colores = [
         "#FFB3BA", "#FFDFBA", "#FFFFBA", "#BAFFC9", "#BAE1FF", "#E3BAFF", "#FFB3E6", "#FFD6E0", "#D6FFD6", "#FFF5BA",
         "#C7CEEA", "#F6EAC2", "#F2C6DE", "#B5EAD7", "#E0BBE4", "#FEC8D8", "#FAE1DD", "#FCD5CE", "#FFDAC1", "#E2F0CB",
@@ -17,7 +16,6 @@ function colores() {
             ejercicios[i].style.backgroundColor = colores[Math.floor(colorAleatorio)];
         }
     }
-};
 
 // Ejercicio inventado por octavio. 
 
@@ -31,32 +29,79 @@ function calcular_fibonachi() {
     console.log("El valor fib(" + num + ") es " + fibonachi(num));
 }
 
-function fibonachi(num){
+function fibonachi(num) {
     let result;
     // Comprobamos casos base
-    if(num === 0){
+    if (num === 0) {
         result = 0;
-    }else if(num === 1){
-        result =  1;
-    }else{
+    } else if (num === 1) {
+        result = 1;
+    } else {
         // Aqui esta la llamada recursiva
-        result = fibonachi(num -1) + fibonachi(num - 2);
+        result = fibonachi(num - 1) + fibonachi(num - 2);
     }
 }
 
-function calcular_factorial(){
+function calcular_factorial(isRec) {
     let num = Number(prompt("Introduce un numero: "));
-    let result = factorial(num);
+    let resultado;
 
-    console.log("el valor factorial(" + num + ") es " + factorial(num));
+    if (isRec) {
+        resultado = factorial_recursiva(num);
+    } else {
+        resultado = factorial_tradicional(num);
+    }
+
+
+    console.log("el valor factorial(" + num + ") es " + resultado);
 
 }
 
-function factorial(num){
-    if(num === 1){
-        return  1;
-    }else{
-        return num * factorial(num - 1);
+function factorial_recursiva(num) {
+    if (num === 1) {
+        return 1;
+    } else {
+        return num * factorial_recursiva(num - 1);
     }
 
+}
+
+function factorial_tradicional(num) {
+    let factorial = 1;
+    for (let i = 1; i <= num; i++) {
+        factorial *= i;
+    }
+    return factorial;
+}
+
+function transformar_dias_en_horas(){
+    let num_dias = Number(prompt("Introduce un numero de dias: "));
+    const horas = num_dias * 24;
+    const minutos = horas * 60;
+    const segundos = minutos * 60;
+
+    console.log(num_dias + " dias son " + horas + " horas");
+    console.log(num_dias + " dias son " + minutos + " minutos");
+    console.log(num_dias + " dias son " + segundos + " segundos");
+    
+}
+
+function calcular_ecuacion_segundo_grado(){
+    let a = Number(prompt("introduce coeficiente a: "));
+    let b = Number(prompt("introduce coeficiente b: "));
+    let c = Number(prompt("introduce coeficiente c: "));
+
+    let delta = (Math.pow(b,2) - 4 * a * c);
+    if(delta < 0){
+        console.error("No hay solucion");
+    }else if(delta == 0){
+        let result = Math.random(-b (2 * a).toFixed(2));
+        console.log("La solucion de " + a + "x^2 + " + b + " x + " + c + " = 0 es (" + result + ")");
+    }else{
+        let result1 = ((-b + Math.sqrt(delta)) / 2 * a);
+        let result2 = ((-b + Math.sqrt(delta)) / 2 * a);
+
+        console.log( "La solucion de " + a + "x^2 + " + b + " x + " + c + " = 0 es (" + result1 + " , " + result2 + ")");
+    }
+    
 }
