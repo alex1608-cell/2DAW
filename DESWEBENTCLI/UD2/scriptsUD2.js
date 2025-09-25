@@ -87,19 +87,19 @@ function transformar_dias_en_horas(){
 }
 
 function calcular_ecuacion_segundo_grado(){
-    let a = Number(prompt("introduce coeficiente a: "));
-    let b = Number(prompt("introduce coeficiente b: "));
-    let c = Number(prompt("introduce coeficiente c: "));
+    let a = Number(prompt("introduce coeficiente A: "));
+    let b = Number(prompt("introduce coeficiente B: "));
+    let c = Number(prompt("introduce coeficiente C: "));
 
-    let delta = (Math.pow(b,2) - 4 * a * c);
+    let delta = Math.pow(b,2) - 4 * a * c;
     if(delta < 0){
         console.error("No hay solucion");
     }else if(delta == 0){
         let result = Math.random(-b (2 * a).toFixed(2));
         console.log("La solucion de " + a + "x^2 + " + b + " x + " + c + " = 0 es (" + result + ")");
     }else{
-        let result1 = ((-b + Math.sqrt(delta)) / 2 * a);
-        let result2 = ((-b + Math.sqrt(delta)) / 2 * a);
+        let result1 = ((-b + Math.sqrt(delta)) / 2 * a).toFixed(2);
+        let result2 = ((-b + Math.sqrt(delta)) / 2 * a).toFixed(2);
 
         console.log( "La solucion de " + a + "x^2 + " + b + " x + " + c + " = 0 es (" + result1 + " , " + result2 + ")");
     }
