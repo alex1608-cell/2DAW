@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>UD 2 Juego Dados</h1>
+    <hr>
+    <h2>Practica evaluable juego dados</h2>
+
+    <div class="ejercicio">
+        <h2>Ejercicio fibonachi</h2>
+        <ul>
+            <li>Se debe registrar por consola cada opción marcada en cada momento.</li>
+            <li>Al pulsar iniciar juego nos solicitará el nombre y la edad y quedará almacenado en
+                una variable global.</li>
+            <li>Si nunca hemos seleccionado “Iniciar Juego”, no podemos seleccionar ninguna otra
+                opción, la aplicación deberá mostrar un error.
+            </li>
+            <li>Al lanzar dados se simulará el lanzamiento de dos dados, y el resultado será la
+                suma de ambos dados.
+            </li>
+            <li>Si el resultado de los dos dados lanzados es igual, debemos además realizar de
+                forma automática una tirada extra sumando el nuevo resultado al primer resultado.</li>
+            <li> La tirada extra por duplicados sólo se realizará un límite de 3 veces. Si volviese a
+                salir una cuarta, la puntuación se establece a cero perdiendo así el turno. El valor de
+                número máximo de tiradas extra debe estar almacenado en una constante del
+                programa</li>
+            <li>El resultado de cada tirada de cada dado debe mostrarse por consola, con un
+                mensaje del tipo “El jugador {nombre} ha obtenido {} puntos en esta tirada”</li>
+            <li>Al mostrarse las estadísticas del juego se debe visualizar por pantalla:
+                a. El número de veces que se ha tirado un dado (incluyendo las dobles tiradas
+                por dados repetidos)
+                b. La media de puntos por tirada
+                c. El valor máximo y mínimo obtenido
+            </li>
+            <li> Al marcar salir debe mostrarse por consola un mensaje del tipo “Fin del juego. Has
+                estado jugando X minutos”</li>
+            <li>Debemos controlar además si se ha introducido una opción del menú inexistente o
+                no válida.</li>
+        </ul>
+        <button onclick="menu()">Iniciar</button>
+    </div>
+</body>
+
+</html>
