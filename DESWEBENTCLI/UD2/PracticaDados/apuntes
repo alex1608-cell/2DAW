@@ -1,0 +1,6 @@
+"window.onload" -> Sirve para que carge lo que sea nada mas cargar la pagina.
+
+"\n" para salto a la siguiente linea.
+
+Las variables globales se inicializan al principio del documento.
+
