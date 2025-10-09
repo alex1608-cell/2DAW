@@ -16,19 +16,19 @@ window.onload = function () {
     }
 }
 
-function contar(){
+function contar() {
     let numero = Number(prompt("Dame un numero"));
     let cifras = 0;
     let contador = 0;
 
-    if(isNaN(numero)){
+    if (isNaN(numero)) {
         console.error("El numero que has introducido no es valido");
 
-    }else{
+    } else {
         cifras = Math.abs(numero);
     }
 
-    while(cifras >= 1){
+    while (cifras >= 1) {
         cifras = Math.floor(cifras / 10);
         contador++;
     }
@@ -36,12 +36,12 @@ function contar(){
     console.log("El numero de cifras es: " + contador);
 }
 
-function pintar(){
+function pintar() {
     let n = Number(prompt("Dime los puntos para el tamaño"));
 
     let triangulo = " ";
 
-    for(let i = 1; i <= n; i++){
+    for (let i = 1; i <= n; i++) {
         triangulo += "\n";
         triangulo += ' '.repeat(n - i);
         triangulo += '* '.repeat(i);
@@ -64,16 +64,16 @@ function pintar(){
          }
 */
 
-function menu(){
+function menu() {
 
     var numeros = [];
-    do{
-         var opt = window.prompt("Elige una opcion: "
+    do {
+        var opt = window.prompt("Elige una opcion: "
             + "\na. Iniciar juego"
             + "\nb. Lanzar dado"
             + "\nc. Mostrar estadisticas de juego"
             + "\nd. Salir");
-        switch(opt){
+        switch (opt) {
             case 'a':
                 meter_numeros();
                 break;
@@ -90,14 +90,86 @@ function menu(){
                 console.error("Valor no valido");
 
         }
-    }while(opt.toLowerCase()!= 'd' && opt != null)
+    } while (opt.toLowerCase() != 'd' && opt != null)
 
 }
-function meter_numeros(){
+function meter_numeros() {
     var numero = Number(prompt("Introduce el numero: "));
 }
 
 
-function salir(){
+function salir() {
     console.log("Usted ha salido");
+}
+
+function es_bisiesto() {
+    let ano = Number(prompt("Dime el año: "));
+
+    if (isNaN(ano)) {
+        console.error("Lo que has introducido no es un numero.");
+    }
+    if ((ano % 4 === 0 && ano % 100 !== 0) || ano % 400 === 0) {
+        console.log("El año es bisiesto");
+    } else {
+        console.log("El numero no es bisiesto");
+    }
+}
+
+function nota() {
+    let nota = Math.floor(Number(prompt("Dime la nota")));
+    switch (true) {
+        case nota < 5:
+            console.log("Suspenso.");
+            break;
+        case nota < 6:
+            console.log("Suficiente.");
+            break;
+        case nota < 7:
+            console.log("Bien.");
+            break;
+        case nota < 9:
+            console.log("Notable.");
+            break;
+        case nota <= 10:
+            console.log("Sobresaliente.");
+            break;
+        default:
+            console.error("Numero no permitido");
+            break;
+    }
+}
+
+// Recursivo
+
+function suma(){
+    if(n <= 0){
+        return 0;
+    }else{
+        return n + suma(n - 1);
+    }
+    
+}
+
+var palabras = "abcdefghijklmñopqrstuvwxyz";
+var caracteres = "123456789()/=*#?";
+
+function contraseña(fuerte){
+    let caracteres_disponibles;
+    let contraseña = "";
+    let longitud = Number(prompt("Introduce longitud de la contraseña"));
+
+    // Si es fuerte o debil
+    if(fuerte){
+        caracteres_disponibles = palabras + caracteres;
+    }else{
+        caracteres_disponibles = palabras;
+    }
+
+    for(let i = 0; i < longitud; i++){
+        let indice_aleatorio = Math.floor(Math.random() * caracteres_disponibles.length());
+        contraseña = contraseña + caracteres_disponibles.charAt(indice_aleatorio);
+    }
+    console.log(" La contraseña generada es: " +  contraseña);
+    return contraseña;
+
 }
