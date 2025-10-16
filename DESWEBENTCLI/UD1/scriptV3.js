@@ -147,7 +147,6 @@ function suma(){
     }else{
         return n + suma(n - 1);
     }
-    
 }
 
 var palabras = "abcdefghijklmñopqrstuvwxyz";
