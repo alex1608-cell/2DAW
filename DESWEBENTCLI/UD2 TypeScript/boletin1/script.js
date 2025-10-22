@@ -24,9 +24,27 @@ function valida_form() {
         $writeNode("error", "Email no valido");
     }
 }
+//Ejercicio 3
+function ej3() {
+    var ventanaNueva = window.open("https:www.google.es", "miVentana");
+    ventanaNueva === null || ventanaNueva === void 0 ? void 0 : ventanaNueva.document.write("HOLA");
+}
+//NO SE PUEDE HACER
+// Actividad 4 Y 5
+function redirect_to() {
+    var url = $inputValue("url");
+    var regExp = new RegExp("^https:\/\/");
+    if (regExp.test(url)) {
+        window.location.href = url;
+    }
+    else {
+        $writeNode("error2", "Introduzca url valida porfis");
+        setTimeout(function () { return $writeNode("error2", ""); }, 5000);
+    }
+}
 // Helpers ( comunes para todo el boletin.SIEMPRE EMPIEZAN POR DOLAR) (AQUI PILLAN EL VALOR DEL INPUT Y EL WRITE NODE ESCRIBE EL MENSAJE )
 function $inputValue(id) {
-    var input = document.getElementById(id); // Lectura0
+    var input = document.getElementById(id); // Lectura
     var result = "";
     if (input) {
         result = input.value; // Aqui leo el valor
@@ -39,3 +57,65 @@ function $writeNode(id, msg) {
         nodo.textContent = msg;
     }
 }
+// Funciones flecha
+function suma1(a, b) {
+    var result = a + b;
+    return result;
+}
+var suma2 = function (a, b) { return a + b; }; // Funcion flecha
+suma1(5, 5);
+suma2(1, 2);
+// funciones pre-definidas de Js de flechas-> filter, reduce, foreach, map
+// 1.-- Filter(recibe y aplica una condicion)
+var arrayPrueba = [2, 4, 5, 6, 8, 10];
+// Forma antigua
+var arrayMayorCinco = [];
+for (var i = 1; i < arrayPrueba.length; i++) {
+    if (arrayPrueba[i] > 5) {
+        arrayMayorCinco.push(arrayPrueba[i]);
+    }
+}
+// Forma mejor y mas moderna del filter
+var arrayMayorCinco2 = arrayPrueba.filter(function (data) { return data > 5; });
+console.log(arrayMayorCinco);
+console.log(arrayMayorCinco2);
+//2.-- Map
+var arrayDoble = [];
+for (var i = 0; i < arrayPrueba.length; i++) {
+    arrayDoble.push(arrayPrueba[i] * 2);
+}
+// Mejor y mas simple
+var arrayDoble2 = arrayPrueba.map(function (data) { return data * 2; });
+console.log(arrayDoble);
+console.log(arrayDoble2);
+// 2.a.-- Combo entre filter y map ( filtrado y transformacion)
+var arrayMayorCincoYDoble = arrayPrueba
+    .filter(function (data) { return data > 5; })
+    .map(function (data) { return data * 2; });
+//3.-- Resume ( resumen )
+//Originalmente
+var total1 = 0;
+for (var i = 0; i < arrayPrueba.length; i++) {
+    total1 += arrayPrueba[i];
+}
+//Forma mas moderna( si no se pone nada al final, por defecto es 0)
+var total2 = arrayPrueba.reduce(function (acc, data) { return acc + data; }, 0);
+console.log(total1);
+console.log(total2);
+// 4.--  Foreach
+for (var i = 1; i < arrayPrueba.length; i++) {
+    console.log("Este es el elemento " + (i + 1) + ": " + arrayPrueba[i]);
+}
+// const arrayPrueba.forEach((data, i) => console.log("Este es el elemento " + (i + 1) + ": " + data));
+//5.-- Some
+console.log(arrayPrueba.some(function (data) { return data > 8; }));
+//6.-- Every
+console.log(arrayPrueba.every(function (data) { return data > 0; }));
+// Funcion propia donde recibe por parametros una funcion
+function resuelve_suma(callback, a, b) {
+    console.log("Aqui todavia no he calculado la suma");
+    var suma = callback(a, b);
+    console.log("Aqui ya se ha calculado y es. " + suma);
+    return suma;
+}
+console.log(resuelve_suma(a, b), a / b, 10, 5);
