@@ -51,7 +51,7 @@ function ej3(){
 
 // Actividad 4 Y 5
 
-function redirect_to() : any{
+function redirect_to() : void {
 
     const url = $inputValue("url");
     const regExp = new RegExp("^https:\/\/");
@@ -97,7 +97,7 @@ function suma1 (a: number, b: number) : number{
     return result;
 }
 
-const suma2 = (a: number, b: number) => a+b; // Funcion flecha
+const suma2 = (a: number, b: number) => {a+b}; // Funcion flecha
 
 suma1(5,5);
 suma2(1,2);
@@ -119,7 +119,7 @@ for(let i = 1; i < arrayPrueba.length; i++){
 
 // Forma mejor y mas moderna del filter
 
-const arrayMayorCinco2 = arrayPrueba.filter(data => data > 5);
+const arrayMayorCinco2 = arrayPrueba.filter(data => {data > 5});
 
 console.log(arrayMayorCinco);
 console.log(arrayMayorCinco2);
@@ -133,7 +133,7 @@ for(let i = 0; i < arrayPrueba.length; i++){
 
 // Mejor y mas simple
 
-const arrayDoble2 = arrayPrueba.map(data => data*2);
+const arrayDoble2 = arrayPrueba.map(data => { data * 2 });
 
 console.log(arrayDoble);
 console.log(arrayDoble2);
@@ -166,19 +166,27 @@ for(let i = 1; i < arrayPrueba.length; i++){
 // const arrayPrueba.forEach((data, i) => console.log("Este es el elemento " + (i + 1) + ": " + data));
 
 //5.-- Some
-console.log(arrayPrueba.some(data => data > 8));
+console.log(arrayPrueba.some(data => {data > 8}));
 
 //6.-- Every
-console.log(arrayPrueba.every(data => data > 0));
+console.log(arrayPrueba.every(data => {data > 0}));
 
 
 // Funcion propia donde recibe por parametros una funcion
 
-function resuelve_suma(callback : ( a:number, b:number) => number, a:number, b:number) : number{
-    console.log("Aqui todavia no he calculado la suma");
-    const suma = callback(a,b);
-    console.log("Aqui ya se ha calculado y es. " + suma);
-    return suma;
+//Definir una función propia donde uno de sus parametros sea una función
+function resuelve_operacion(callback: (a:number,b: number) => number, a:number,  b:number){
+    console.log("Aqui todavia no he calculado la operacion");
+    const result = callback(a,b);
+    console.log("Aqui ya la he calculado y es: "  + result);
+    return result;
 }
-console.log(resuelve_suma(a,b)=> a/b, 10, 5);
- 
+
+console.log(resuelve_operacion(( a,b ) => ( a/b ) , 10 , 5));
+
+// Ejercicio 13
+
+function lee_elementos(){
+    const lista = document.getElementById("lista-alumno") as HTMLElement;
+
+}

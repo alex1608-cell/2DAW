@@ -62,7 +62,7 @@ function suma1(a, b) {
     var result = a + b;
     return result;
 }
-var suma2 = function (a, b) { return a + b; }; // Funcion flecha
+var suma2 = function (a, b) { a + b; }; // Funcion flecha
 suma1(5, 5);
 suma2(1, 2);
 // funciones pre-definidas de Js de flechas-> filter, reduce, foreach, map
@@ -76,7 +76,7 @@ for (var i = 1; i < arrayPrueba.length; i++) {
     }
 }
 // Forma mejor y mas moderna del filter
-var arrayMayorCinco2 = arrayPrueba.filter(function (data) { return data > 5; });
+var arrayMayorCinco2 = arrayPrueba.filter(function (data) { data > 5; });
 console.log(arrayMayorCinco);
 console.log(arrayMayorCinco2);
 //2.-- Map
@@ -85,7 +85,7 @@ for (var i = 0; i < arrayPrueba.length; i++) {
     arrayDoble.push(arrayPrueba[i] * 2);
 }
 // Mejor y mas simple
-var arrayDoble2 = arrayPrueba.map(function (data) { return data * 2; });
+var arrayDoble2 = arrayPrueba.map(function (data) { data * 2; });
 console.log(arrayDoble);
 console.log(arrayDoble2);
 // 2.a.-- Combo entre filter y map ( filtrado y transformacion)
@@ -108,14 +108,19 @@ for (var i = 1; i < arrayPrueba.length; i++) {
 }
 // const arrayPrueba.forEach((data, i) => console.log("Este es el elemento " + (i + 1) + ": " + data));
 //5.-- Some
-console.log(arrayPrueba.some(function (data) { return data > 8; }));
+console.log(arrayPrueba.some(function (data) { data > 8; }));
 //6.-- Every
-console.log(arrayPrueba.every(function (data) { return data > 0; }));
+console.log(arrayPrueba.every(function (data) { data > 0; }));
 // Funcion propia donde recibe por parametros una funcion
-function resuelve_suma(callback, a, b) {
-    console.log("Aqui todavia no he calculado la suma");
-    var suma = callback(a, b);
-    console.log("Aqui ya se ha calculado y es. " + suma);
-    return suma;
+//Definir una función propia donde uno de sus parametros sea una función
+function resuelve_operacion(callback, a, b) {
+    console.log("Aqui todavia no he calculado la operacion");
+    var result = callback(a, b);
+    console.log("Aqui ya la he calculado y es: " + result);
+    return result;
 }
-console.log(resuelve_suma(a, b), a / b, 10, 5);
+console.log(resuelve_operacion(function (a, b) { return (a / b); }, 10, 5));
+// Ejercicio 13
+function lee_elementos() {
+    var lista = document.getElementById("lista-alumno");
+}
