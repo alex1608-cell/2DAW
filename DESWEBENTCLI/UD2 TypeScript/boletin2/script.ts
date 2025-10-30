@@ -182,6 +182,7 @@ function reloj(){
     let minutos = now.getMinutes().toString();
     let segundos = now.getSeconds().toString();
 
+
     reloj.textContent = horas + ":" + minutos + ":" + segundos;
     // Otra opcion es let now = new Date().toLocaleTimeString();
 
