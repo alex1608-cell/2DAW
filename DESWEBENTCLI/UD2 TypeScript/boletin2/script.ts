@@ -124,23 +124,123 @@ function analiza_edad(){
     
 }
 
-function miapp(){
+function miapp() : void{
     let promp : string = prompt("Dime tu nombre de usuario") as string;
 
     let nodoParrafo : HTMLParagraphElement = document.getElementById("saludo") as HTMLParagraphElement;
-
+    
+    let option : HTMLSelectElement = document.getElementById ("select") as HTMLSelectElement;
+    
     nodoParrafo.textContent = "Hola " + promp;
+    nodoParrafo.style.color = option.value;
+}
 
-    let opcion : HTMLOptionElement = document.getElementById("value") as HTMLOptionElement;
+function mostrarInfo(){
+    console.log("El idioma del navegador es: " + navigator.language);
+    console.log("Nombre navegador: " + navigator.userAgent);
+    console.log("Ver si tiene cookies o no habilitadas: " + navigator.cookieEnabled);
+    console.log("Tamaño alto de la pantalla: " + window.innerHeight);
+    console.log("Tamaño ancho pantalla: " + window.innerWidth);
+}
+
+function redirec_to(){
+    const url = $inputValue("url");
+    const regExp = new RegExp("^https:\/\/");
+
+    if(regExp.test(url)){
+        window.location.href = url;
+    }else{
+        $writeNode("error", "La url no es valida");
+    }
+}
+
+function IrAtras(){
+    let atras : HTMLButtonElement = document.getElementById("atras") as HTMLButtonElement;
+
+    window.history.back();
+}
+
+
+function adelante(){
+    let adelante : HTMLButtonElement = document.getElementById("adelante") as HTMLButtonElement;
+
+    window.history.forward();
+}
+
+function recargar(){
+    let recargar : HTMLButtonElement = document.getElementById("recargar") as HTMLButtonElement;
+
+    window.location.reload();
+}
+
+function reloj(){
+    let reloj = document.getElementById("reloj") as HTMLParagraphElement;
     
-    let valor = opcion.value;
+    let now = new Date();
 
-    console.log(valor);
-    
+    let horas = now.getHours().toString();
+    let minutos = now.getMinutes().toString();
+    let segundos = now.getSeconds().toString();
 
-
-
-
+    reloj.textContent = horas + ":" + minutos + ":" + segundos;
+    // Otra opcion es let now = new Date().toLocaleTimeString();
 
 }
 
+window.onload = () => setInterval(reloj, 1000);
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Helpers ( comunes para todo el boletin.SIEMPRE EMPIEZAN POR DOLAR) (AQUI PILLAN EL VALOR DEL INPUT Y EL WRITE NODE ESCRIBE EL MENSAJE )
+
+function $inputValue(id: string) : string{
+    
+    const input = document.getElementById(id) as HTMLInputElement; // Lectura
+
+    let result = "";
+    
+    if(input){
+        result = input.value; // Aqui leo el valor
+    }
+    return result;
+}
+
+function $writeNode(id: string, msg: string) : void{
+  
+    const nodo = document.getElementById(id) as HTMLElement; //Escritura
+
+    if(nodo){
+        nodo.textContent = msg
+    }
+    
+}

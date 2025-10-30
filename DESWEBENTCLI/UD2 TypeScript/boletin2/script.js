@@ -89,8 +89,61 @@ function analiza_edad() {
 function miapp() {
     var promp = prompt("Dime tu nombre de usuario");
     var nodoParrafo = document.getElementById("saludo");
+    var option = document.getElementById("select");
     nodoParrafo.textContent = "Hola " + promp;
-    var opcion = document.getElementById("value");
-    var valor = opcion.value;
-    console.log(valor);
+    nodoParrafo.style.color = option.value;
+}
+function mostrarInfo() {
+    console.log("El idioma del navegador es: " + navigator.language);
+    console.log("Nombre navegador: " + navigator.userAgent);
+    console.log("Ver si tiene cookies o no habilitadas: " + navigator.cookieEnabled);
+    console.log("Tamaño alto de la pantalla: " + window.innerHeight);
+    console.log("Tamaño ancho pantalla: " + window.innerWidth);
+}
+function redirec_to() {
+    var url = $inputValue("url");
+    var regExp = new RegExp("^https:\/\/");
+    if (regExp.test(url)) {
+        window.location.href = url;
+    }
+    else {
+        $writeNode("error", "La url no es valida");
+    }
+}
+function IrAtras() {
+    var atras = document.getElementById("atras");
+    window.history.back();
+}
+function adelante() {
+    var adelante = document.getElementById("adelante");
+    window.history.forward();
+}
+function recargar() {
+    var recargar = document.getElementById("recargar");
+    window.location.reload();
+}
+function reloj() {
+    var reloj = document.getElementById("reloj");
+    var now = new Date();
+    var horas = now.getHours().toString();
+    var minutos = now.getMinutes().toString();
+    var segundos = now.getSeconds().toString();
+    reloj.textContent = horas + ":" + minutos + ":" + segundos;
+    // Otra opcion es let now = new Date().toLocaleTimeString();
+}
+window.onload = function () { return setInterval(reloj, 1000); };
+// Helpers ( comunes para todo el boletin.SIEMPRE EMPIEZAN POR DOLAR) (AQUI PILLAN EL VALOR DEL INPUT Y EL WRITE NODE ESCRIBE EL MENSAJE )
+function $inputValue(id) {
+    var input = document.getElementById(id); // Lectura
+    var result = "";
+    if (input) {
+        result = input.value; // Aqui leo el valor
+    }
+    return result;
+}
+function $writeNode(id, msg) {
+    var nodo = document.getElementById(id); //Escritura
+    if (nodo) {
+        nodo.textContent = msg;
+    }
 }
